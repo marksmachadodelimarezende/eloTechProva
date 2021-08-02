@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "b780f2ae-40ff-4c25-ba0a-caedb7a0a401",
+		"name": "EloTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Get FindAll Filters",
+					"item": [
+						{
+							"name": "findAll like nome",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"dtNascimentoDe\": \"1980-01-01\",\r\n   \"dtNascimentoAte\": \"1990-01-01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/pessoa?page=1&size=3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pessoa"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Pagina a ser exibida"
+										},
+										{
+											"key": "size",
+											"value": "3",
+											"description": "Quantidade de registros retornados por pagina"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pessoa/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById Contatos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pessoa/10/contato",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"contato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 10,\r\n    \"nome\": \"Beltrana Testes\",\r\n    \"cpf\": \"22495077080\",\r\n    \"dtNascimento\": \"2015-06-25\",\r\n    \"contatos\": [\r\n        {\r\n            \"id\": 5,\r\n            \"nome\": \"Beltrana Tests\",\r\n            \"telefone\": \"(48) 3131-3232\",\r\n            \"email\": \"beltrana.tests@email.com\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pessoa",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Id Invalid Record",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9999,\r\n    \"nome\": \"Beltrana Testes\",\r\n    \"cpf\": \"22495077080\",\r\n    \"dtNascimento\": \"2015-06-25\",\r\n    \"contatos\": [\r\n        {\r\n            \"id\": 5,\r\n            \"nome\": \"Beltrana Tests\",\r\n            \"telefone\": \"(48) 3131-3232\",\r\n            \"email\": \"beltrana.tests@email.com\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pessoa",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save com Erros - Exceções Tratadas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Beltrana Tests 2\",\r\n    \"cpf\": \"11111111111\",\r\n    \"dtNascimento\": \"2025-02-15\",\r\n    \"contatos\": [\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pessoa/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Beltrana Tests\",\r\n    \"cpf\": \"22495077080\",\r\n    \"dtNascimento\": \"2015-06-25\",\r\n    \"contatos\": [\r\n        {\r\n            \"nome\": \"Beltrana Tests\",\r\n            \"telefone\": \"(48) 3131-3232\",\r\n            \"email\": \"beltrana.tests@email.com.br\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pessoa/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pessoa",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": ""
+		}
+	]
+}
